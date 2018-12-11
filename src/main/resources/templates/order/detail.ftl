@@ -13,12 +13,14 @@
                 <tr>
                     <th>订单id</th>
                     <th>订单总金额</th>
+                    <th>订单状态</th>
                 </tr>
                 </thead>
                 <tbody>
                 <tr>
                     <td>${orderDTO.orderId}</td>
                     <td>${orderDTO.orderAmount}元</td>
+                    <td>${orderDTO.getOrderStatusEnum().getMessage()}</td>
                 </tr>
                 </tbody>
             </table>

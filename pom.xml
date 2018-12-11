@@ -62,12 +62,14 @@
 			<version>2.7.0</version>
 		</dependency>
 
+		<!--第三方支付SDK-->
 		<dependency>
 			<groupId>cn.springboot</groupId>
 			<artifactId>best-pay-sdk</artifactId>
 			<version>1.1.0</version>
 		</dependency>
 
+		<!--freemarker模板-->
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-freemarker</artifactId>

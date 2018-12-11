@@ -30,16 +30,16 @@
                     <td>${orderDTO.buyerName}</td>
                     <td>${orderDTO.buyerPhone}</td>
                     <td>${orderDTO.buyerAddress}</td>
-                    <td>${orderDTO.orderAmount}</td>
+                    <td>${orderDTO.orderAmount}元</td>
                     <td>${orderDTO.getOrderStatusEnum().getMessage()}</td>
                     <#--<td>支付方式</td>-->
                     <td>${orderDTO.getPayStatusEnum().getMessage()}</td>
                     <td>${orderDTO.createTime}</td>
                     <td>
-                        <a href="/sell/seller/order/derail?orderId=${orderDTO.orderId}">详情</a>
+                        <a href="/sell/seller/order/detail?orderId=${orderDTO.orderId}">详情</a>
                     </td>
                     <td>
-                        <#if orderDTO.getOrderStatusEnum().message != "已取消">
+                        <#if orderDTO.getOrderStatusEnum().message == "新订单">
                             <a href="/sell/seller/order/cancel?orderId=${orderDTO.orderId}">取消</a>
                         </#if>
                     </td>

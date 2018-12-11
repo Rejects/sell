@@ -35,8 +35,14 @@
                     <#--<td>支付方式</td>-->
                     <td>${orderDTO.getPayStatusEnum().getMessage()}</td>
                     <td>${orderDTO.createTime}</td>
-                    <td>详情</td>
-                    <td>取消</td>
+                    <td>
+                        <a href="/sell/seller/order/derail?orderId=${orderDTO.orderId}">详情</a>
+                    </td>
+                    <td>
+                        <#if orderDTO.getOrderStatusEnum().message != "已取消">
+                            <a href="/sell/seller/order/cancel?orderId=${orderDTO.orderId}">取消</a>
+                        </#if>
+                    </td>
                 </tr>
                 </#list>
                 </tbody>

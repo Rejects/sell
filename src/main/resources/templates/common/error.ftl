@@ -1,9 +1,5 @@
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>卖家错误提示</title>
-    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet">
-</head>
+<#include "../common/header.ftl">
 <body>
 <div class="container">
     <div class="row clearfix">

@@ -6,8 +6,8 @@ import com.lly835.bestpay.model.RefundResponse;
 
 /**
  * 支付
- * Created by 廖师兄
- * 2017-07-04 00:53
+ * Created by ww
+ * 2018-12-04 00:53
  */
 public interface PayService {
 

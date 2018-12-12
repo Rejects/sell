@@ -4,8 +4,8 @@ import lombok.Data;
 
 /**
  * http请求返回的最外层对象
- * Created by 廖师兄
- * 2017-05-12 14:13
+ * Created by ww
+ * 2018-10-12 14:13
  */
 @Data
 public class ResultVO<T> {

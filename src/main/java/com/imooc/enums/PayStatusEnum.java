@@ -3,8 +3,8 @@ package com.imooc.enums;
 import lombok.Getter;
 
 /**
- * Created by 廖师兄
- * 2017-06-11 17:16
+ * Created by ww
+ * 2018-11-11 17:16
  */
 @Getter
 public enum PayStatusEnum implements CodeEnum {

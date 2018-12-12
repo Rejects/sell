@@ -6,8 +6,8 @@ import java.util.List;
 
 /**
  * 类目
- * Created by 廖师兄
- * 2017-05-09 10:12
+ * Created by ww
+ * 2018-10-09 10:12
  */
 public interface CategoryService {
 

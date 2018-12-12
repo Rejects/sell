@@ -16,8 +16,8 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * Created by 廖师兄
- * 2017-05-09 17:31
+ * Created by ww
+ * 2018-10-09 17:31
  */
 @Service
 public class ProductServiceImpl implements ProductService {

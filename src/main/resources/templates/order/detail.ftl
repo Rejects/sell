@@ -1,13 +1,20 @@
 <html>
-<head>
-    <meta charset="utf-8">
-    <title>卖家成功提示</title>
-    <link href="https://cdn.bootcss.com/twitter-bootstrap/3.0.1/css/bootstrap.min.css" rel="stylesheet">
-</head>
+<#include "../common/header.ftl">
 <body>
-<div class="container">
+<div id="wrapper" class="toggled">
+    <#--边栏sidebar-->
+    <#include "../common/nav.ftl">
+
+    <#--主要内容content-->
+    <div id="page-content-wrapper">
+        <div class="container">
     <div class="row clearfix">
-        <div class="col-md-4 column">
+        <div class="col-md-12 column">
+            <h3>
+                订单详情
+            </h3>
+        </div>
+        <div class="col-md-5 column">
             <table class="table table-bordered">
                 <thead>
                 <tr>
@@ -28,6 +35,9 @@
 
         <#--订单详情表数据-->
         <div class="col-md-12 column">
+            <h4>
+                明细
+            </h4>
             <table class="table table-bordered">
                 <thead>
                 <tr>
@@ -67,5 +77,6 @@
         </div>
     </div>
 </div>
+    </div>
 </body>
 </html>

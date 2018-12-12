@@ -3,8 +3,8 @@ package com.imooc.enums;
 import lombok.Getter;
 
 /**
- * Created by 廖师兄
- * 2017-06-11 18:56
+ * Created by ww
+ * 2018-11-11 18:56
  */
 @Getter
 public enum ResultEnum {

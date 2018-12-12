@@ -4,8 +4,8 @@ import lombok.Getter;
 
 /**
  * 商品状态
- * Created by 廖师兄
- * 2017-05-09 17:33
+ * Created by ww
+ * 2018-10-09 17:33
  */
 @Getter
 public enum ProductStatusEnum implements CodeEnum {
@@ -21,6 +21,4 @@ public enum ProductStatusEnum implements CodeEnum {
         this.code = code;
         this.message = message;
     }
-
-
 }

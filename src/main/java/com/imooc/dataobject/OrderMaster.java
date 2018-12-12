@@ -11,8 +11,8 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 /**
- * Created by 廖师兄
- * 2017-06-11 17:08
+ * Created by ww
+ * 2018-11-11 17:08
  */
 @Entity
 @Data

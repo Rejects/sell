@@ -35,7 +35,7 @@
                             </div>
                             <div class="form-group">
                                 <label>图片</label>
-                                <img src="${(productInfo.productIcon)!}" style="width: 100px; height: 100px">
+                                <img src="${(productInfo.productIcon)!""}" style="width: 100px; height: 100px">
                                 <input name="productIcon" type="text" class="form-control" id="productIcon" value="${(productInfo.productIcon)!}"/>
                                 <#--<input name="productIcon" type="file" id="exampleInputFile"/>-->
                             </div>
@@ -52,19 +52,8 @@
                                         </option>
                                     </#list>
                                 </select>
-                                <#--<input name="categoryType" type="text" class="form-control" id="exampleInputPassword1" value="${(productInfo.categoryType)!}"/>-->
                             </div>
-                            <#--<div class="form-group">-->
-                                <#--<label for="exampleInputFile">File input</label>-->
-                                <#--<input name="" type="file" id="exampleInputFile"/>-->
-                                <#--<p class="help-block">-->
-                                    <#--Example block-level help text here.-->
-                                <#--</p>-->
-                            <#--</div>-->
-                            <#--<div class="checkbox">-->
-                                <#--<label><input type="checkbox"/>Check me out</label>-->
-                            <#--</div>-->
-                            <input type="hidden" name="productId" value="${productInfo.productId}">
+                            <input type="hidden" name="productId" value="${(productInfo.productId)!}">
                             <button type="submit" class="btn btn-default">提交</button>
                         </form>
                     </div>

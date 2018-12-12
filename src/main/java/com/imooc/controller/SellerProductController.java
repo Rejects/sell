@@ -8,6 +8,8 @@ import com.imooc.exception.SellException;
 import com.imooc.form.ProductForm;
 import com.imooc.service.CategoryService;
 import com.imooc.service.ProductService;
+import com.imooc.utils.KeyUtil;
+import com.sun.org.apache.xml.internal.security.keys.KeyUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -47,6 +49,7 @@ public class SellerProductController {
      *
      * @param page 第几页，从1开始
      * @param size 一页里的条数
+     * @param map
      * @return
      */
     @GetMapping("/list")
@@ -105,6 +108,12 @@ public class SellerProductController {
         return new ModelAndView("common/success", map);
     }
 
+    /**
+     * 展示
+     * @param productId
+     * @param map
+     * @return
+     */
     @GetMapping("/index")
     public ModelAndView index(@RequestParam(value = "productId", required = false) String productId,
                               Map<String, Object> map) {
@@ -118,6 +127,13 @@ public class SellerProductController {
         return new ModelAndView("product/index", map);
     }
 
+    /**
+     * 保存/更新
+     * @param form
+     * @param bindingResult
+     * @param map
+     * @return
+     */
     @PostMapping("/save")
     public ModelAndView save(@Valid ProductForm form,
                              BindingResult bindingResult,
@@ -129,7 +145,13 @@ public class SellerProductController {
         }
 
         try {
-            ProductInfo productInfo = productService.findOne(form.getProductId());
+            ProductInfo productInfo = new ProductInfo();
+            //ProductId为空说明是新增
+            if (!StringUtils.isEmpty(form.getProductId())){
+                productInfo = productService.findOne(form.getProductId());
+            }else {
+                form.setProductId(KeyUtil.genUniqueKey());
+            }
             BeanUtils.copyProperties(form, productInfo);
             productService.save(productInfo);
         }catch (SellException e){

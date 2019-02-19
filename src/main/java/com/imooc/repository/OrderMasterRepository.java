@@ -1,6 +1,6 @@
 package com.imooc.repository;
 
-import com.imooc.dataobject.OrderMaster;
+import com.imooc.dataObject.OrderMaster;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;

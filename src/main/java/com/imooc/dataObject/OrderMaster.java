@@ -1,4 +1,4 @@
-package com.imooc.dataobject;
+package com.imooc.dataObject;
 
 import com.imooc.enums.OrderStatusEnum;
 import com.imooc.enums.PayStatusEnum;

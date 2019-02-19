@@ -1,6 +1,6 @@
 package com.imooc.converter;
 
-import com.imooc.dataobject.OrderMaster;
+import com.imooc.dataObject.OrderMaster;
 import com.imooc.dto.OrderDTO;
 import org.springframework.beans.BeanUtils;
 

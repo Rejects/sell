@@ -1,9 +1,9 @@
 package com.imooc.service.impl;
 
 import com.imooc.converter.OrderMaster2OrderDTOConverter;
-import com.imooc.dataobject.OrderDetail;
-import com.imooc.dataobject.OrderMaster;
-import com.imooc.dataobject.ProductInfo;
+import com.imooc.dataObject.OrderDetail;
+import com.imooc.dataObject.OrderMaster;
+import com.imooc.dataObject.ProductInfo;
 import com.imooc.dto.CartDTO;
 import com.imooc.dto.OrderDTO;
 import com.imooc.enums.OrderStatusEnum;
@@ -48,6 +48,12 @@ public class OrderServiceImpl implements OrderService {
 
     @Autowired
     private PayService payService;
+
+    @Autowired
+    private PushMessageService pushMessageService;
+
+    @Autowired
+    private WebSocket webSocket;
 
     @Override
     @Transactional
@@ -95,6 +101,9 @@ public class OrderServiceImpl implements OrderService {
                 new CartDTO(e.getProductId(), e.getProductQuantity())
         ).collect(Collectors.toList());
         productService.decreaseStock(cartDTOList);
+
+        //发送webSocket消息
+        webSocket.sendMessage(orderDTO.getOrderId());
 
 
         return orderDTO;
@@ -185,6 +194,9 @@ public class OrderServiceImpl implements OrderService {
             log.error("【完结订单】更新失败, orderMaster={}", orderMaster);
             throw new SellException(ResultEnum.ORDER_UPDATE_FAIL);
         }
+
+        //推送微信模板消息
+        pushMessageService.orderStatus(orderDTO);
 
         return orderDTO;
     }

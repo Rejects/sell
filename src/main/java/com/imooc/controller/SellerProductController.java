@@ -1,18 +1,18 @@
 package com.imooc.controller;
 
-import com.imooc.dataobject.ProductCategory;
-import com.imooc.dataobject.ProductInfo;
-import com.imooc.dto.OrderDTO;
+import com.imooc.dataObject.ProductCategory;
+import com.imooc.dataObject.ProductInfo;
 import com.imooc.enums.ResultEnum;
 import com.imooc.exception.SellException;
 import com.imooc.form.ProductForm;
 import com.imooc.service.CategoryService;
 import com.imooc.service.ProductService;
 import com.imooc.utils.KeyUtil;
-import com.sun.org.apache.xml.internal.security.keys.KeyUtils;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.CacheEvict;
+import org.springframework.cache.annotation.CachePut;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Controller;
@@ -135,6 +135,8 @@ public class SellerProductController {
      * @return
      */
     @PostMapping("/save")
+//    @CachePut(cacheNames = "product", key = "123")//访问下面方法之后会更新缓存
+    @CacheEvict(cacheNames = "product", key = "123")//访问下面方法之后会清除缓存
     public ModelAndView save(@Valid ProductForm form,
                              BindingResult bindingResult,
                              Map<String, Object> map){

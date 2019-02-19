@@ -3,13 +3,14 @@ package com.imooc.controller;
 import com.imooc.VO.ProductInfoVO;
 import com.imooc.VO.ProductVO;
 import com.imooc.VO.ResultVO;
-import com.imooc.dataobject.ProductCategory;
-import com.imooc.dataobject.ProductInfo;
+import com.imooc.dataObject.ProductCategory;
+import com.imooc.dataObject.ProductInfo;
 import com.imooc.service.CategoryService;
 import com.imooc.service.ProductService;
 import com.imooc.utils.ResultVOUtil;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -34,6 +35,7 @@ public class BuyerProductController {
     private CategoryService categoryService;
 
     @GetMapping("/list")
+    @Cacheable(cacheNames = "product", key = "123")
     public ResultVO list() {
         //1. 查询所有的上架商品
         List<ProductInfo> productInfoList = productService.findUpAll();

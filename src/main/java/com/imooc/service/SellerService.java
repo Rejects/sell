@@ -1,6 +1,6 @@
 package com.imooc.service;
 
-import com.imooc.dataobject.SellerInfo;
+import com.imooc.dataObject.SellerInfo;
 
 /**
  * 卖家端

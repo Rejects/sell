@@ -3,25 +3,46 @@ spring:
     driver-class-name: com.mysql.jdbc.Driver
     username: root
     password: 123456
-    url: jdbc:mysql://192.168.3.225/sell?characterEncoding=utf-8&useSSL=false
+    url: jdbc:mysql://192.168.148.129/sell?characterEncoding=utf-8&useSSL=false
   jpa:
     show-sql: true
   jackson:
     default-property-inclusion: non_null
+  redis:
+    host: 192.168.148.129
+    port: 6379
 server:
   context-path: /sell
-#logging:
-#  pattern:
-#    console: "%d - %msg%n"
-##  path: /var/log/tomcat/
-#  file: /var/log/tomcat/sell.log
-#  level:
-#    com.imooc.LoggerTest: debug
 
 wechat:
   mpAppId: wxcbad8fc0e636eb7e
   mpAppSecret: 810428d787cdfeb26b91bb45fd6c5b89
+  openAppId: wxcbad8fc0e636eb7e
+  openAppSecret: 810428d787cdfeb26b91bb45fd6c5b89
   mchId:
   mchKey:
   keyPath:
   notifyUrl: http://l222099o81.51mypc.cn/sell/pay/notify
+  templateId:
+    orderStatus: Mpbssf3e_5lVAL7OtKENZav4RZeq4exdcyT0uROvLQA
+
+projectUrl:
+  wechatMpAuthorize: http://l222099o81.51mypc.cn
+  wechatOpenAuthorize: http://l222099o81.51mypc.cn
+  Sell: http://l222099o81.51mypc.cn
+
+#设置日志
+#logging:
+#  pattern:
+#    console: "%d - %msg%n"
+#  path: /var/log/tomcat/
+#  file: /var/log/tomcat/sell.log
+#  level:
+#    com.imooc.LoggerTest: debug
+logging:
+  level:
+    com.imooc.dataObject.mapper：trace
+
+#定位xml形式的mapper路径
+mybatis:
+  mapper-locations: calsspath:mapper/*.xml

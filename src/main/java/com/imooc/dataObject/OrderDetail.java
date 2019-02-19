@@ -1,7 +1,6 @@
-package com.imooc.dataobject;
+package com.imooc.dataObject;
 
 import lombok.Data;
-import org.hibernate.annotations.DynamicInsert;
 
 import javax.persistence.Entity;
 import javax.persistence.Id;

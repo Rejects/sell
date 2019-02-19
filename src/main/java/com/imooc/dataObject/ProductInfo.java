@@ -1,4 +1,4 @@
-package com.imooc.dataobject;
+package com.imooc.dataObject;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.imooc.enums.ProductStatusEnum;

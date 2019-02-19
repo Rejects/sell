@@ -19,10 +19,14 @@ public class PushMessageServiceImplTest {
     @Autowired
     private OrderService orderService;
 
+    @Autowired
+    private PushMessageServiceImpl pushMessageService;
+
     @Test
     public void orderStatus() throws Exception {
 
-        OrderDTO orderDTO = orderService.findOne("1499097346204378750");
+        OrderDTO orderDTO = orderService.findOne("1539412164599279038");
+         pushMessageService.orderStatus(orderDTO);
     }
 
 }

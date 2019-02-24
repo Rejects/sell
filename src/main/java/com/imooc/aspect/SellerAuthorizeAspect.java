@@ -2,7 +2,6 @@ package com.imooc.aspect;
 
 import com.imooc.constant.CookieConstant;
 import com.imooc.constant.RedisConstant;
-import com.imooc.exception.SellException;
 import com.imooc.exception.SellerAuthorizeException;
 import com.imooc.utils.CookieUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -12,7 +11,6 @@ import org.aspectj.lang.annotation.Pointcut;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.StringRedisTemplate;
 import org.springframework.stereotype.Component;
-import org.springframework.web.context.request.RequestAttributes;
 import org.springframework.web.context.request.RequestContextHolder;
 import org.springframework.web.context.request.ServletRequestAttributes;
 
@@ -31,10 +29,18 @@ public class SellerAuthorizeAspect {
     @Autowired
     private StringRedisTemplate redisTemplate;
 
+    /**
+     * 登录校验的切点
+     * 这是一个切点，标记方法
+     */
     @Pointcut("execution(public * com.imooc.controller.Seller*.*(..))" +
             "&& !execution(public * com.imooc.controller.SellerUserController.*(..))")
     public void verify(){}
 
+    /**
+     * 登录校验
+     * 该方法在切点verify()之前执行
+     */
     @Before("verify()")
     public void doVerify(){
         ServletRequestAttributes attributes = (ServletRequestAttributes) RequestContextHolder.getRequestAttributes();
